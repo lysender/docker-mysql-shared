@@ -6,8 +6,16 @@ services:
       - "3307:3306"
     environment:
       MYSQL_ROOT_PASSWORD: 'darkstardb'
+    volumes:
+      - type: volume
+        source: data
+        target: /var/lib/mysql
+        volume:
+          nocopy: true
     networks:
       - localnet
+volumes:
+  data:
 networks:
   localnet:
     driver: bridge
