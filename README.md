@@ -6,7 +6,7 @@ Note: This is meant to be used for development/testing machines only as you woul
 
 ## Usage
 
-Note: We are using a hardcoded root password here. This is because this is intended to be used in a development workflow. If you want a randomly generated password instead, read the instructions here: https://hub.docker.com/_/mysql/ to customize the docker build.
+Copy the `.env.example` file to start using the template. Change the port mapping and root password when necessary.
 
 ~~~
 cd /path/do/docker-mysql-shared
@@ -15,7 +15,7 @@ sudo docker-compose up -d
 
 ## CLI Access
 
-Note: Using a hardcoded root password.
+Note: Using the default configuration.
 
 ~~~
 mysql --port 3307 --protocol tcp -u root -pdarkstardb
