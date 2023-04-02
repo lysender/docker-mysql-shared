@@ -2,6 +2,7 @@ version: '3.9'
 services:
   db:
     image: mysql:8.0.32-debian
+    command: --default-authentication-plugin=mysql_native_password
     ports:
       - "${PORT_MAPPING}"
     environment:
