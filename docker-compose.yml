@@ -3,9 +3,9 @@ services:
   db:
     image: mysql:8.0.32-debian
     ports:
-      - "127.0.0.1:3307:3306"
+      - "${PORT_MAPPING}"
     environment:
-      MYSQL_ROOT_PASSWORD: 'darkstardb'
+      MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
     volumes:
       - type: volume
         source: data
