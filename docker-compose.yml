@@ -4,9 +4,9 @@ services:
     command: --default-authentication-plugin=mysql_native_password
     cap_add: [ SYS_NICE ]
     ports:
-      - "${PORT_MAPPING}"
+      - "${MYSQL_PORTS}"
     environment:
-      MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
     volumes:
       - type: volume
         source: data
@@ -14,9 +14,17 @@ services:
         volume:
           nocopy: true
     networks:
-      - localnet
+      - mysqlnet
+
+  adminer:
+    image: adminer
+    ports:
+      - "${ADMINER_PORTS}"
+    networks:
+      - mysqlnet
+
 volumes:
   data:
 networks:
-  localnet:
+  mysqlnet:
     driver: bridge
